@@ -1,0 +1,1 @@
+export { Provider as ProductsImport } from './provider';

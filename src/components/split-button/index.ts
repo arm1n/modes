@@ -1,0 +1,1 @@
+export { Component as SplitButton } from './component';

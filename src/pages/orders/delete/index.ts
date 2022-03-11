@@ -1,0 +1,1 @@
+export { Provider as OrdersDelete } from './provider';

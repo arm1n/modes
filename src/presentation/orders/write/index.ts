@@ -1,0 +1,1 @@
+export { WritePresenter } from './presenter';
