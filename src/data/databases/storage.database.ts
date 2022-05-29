@@ -22,7 +22,7 @@ export class StorageDatabase implements Database {
 		}
 	}
 
-	public async clear<M extends Model, D extends Json & Model>({
+	public async clear<M extends Model>({
 		name,
 	}: ModelType<M>) {
 		try {

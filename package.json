@@ -24,7 +24,7 @@
     "typescript": "^4.4.2"
   },
   "scripts": {
-    "deploy": "yarn deploy && gh-pages -d build",
+    "deploy": "yarn build && gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

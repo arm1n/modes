@@ -2,7 +2,7 @@ export {
 	Navigate,
 	Routes,
 	Route,
-	BrowserRouter as Router,
+	HashRouter as Router,
 	useLocation,
 	useParams,
 	useSearchParams,
