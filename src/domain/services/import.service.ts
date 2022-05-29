@@ -13,7 +13,8 @@ export interface ImportService<M extends Model> {
 			locale?: string;
 		}
 	): Promise<
-		Success<number> | Failure<ImportError, { ids: string[] } | undefined>
+		| Success<{ count: number; invalidKeys: string[] }>
+		| Failure<ImportError, { ids: string[] } | undefined>
 	>;
 }
 

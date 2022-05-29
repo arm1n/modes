@@ -102,16 +102,39 @@ export class Presenter
 		this.dispatchState({ isBusy: false });
 
 		if (Result.isSuccess(result)) {
-			this.dispatchEffect({
-				name: "showNotification",
-				data: Result.success({
-					message: n(
-						"{{count}} product has been successfully imported.",
-						"{{count}} products has been successfully imported.",
-						result.value
-					),
-				}),
-			});
+			const {
+				value: { count, invalidKeys },
+			} = result;
+
+			if (invalidKeys.length === 0) {
+				this.dispatchEffect({
+					name: "showNotification",
+					data: Result.success({
+						message: n(
+							"{{count}} product has been successfully imported.",
+							"{{count}} products has been successfully imported.",
+							count
+						),
+					}),
+				});
+			} else {
+				this.dispatchEffect({
+					name: "showNotification",
+					data: Result.success({
+						message: n(
+							"{{count}} product has been imported with missing columns: {{columns}}",
+							"{{count}} products has been imported with missing columns: {{columns}}",
+							count,
+							{
+								columns: invalidKeys.join(","),
+							}
+						),
+						type: "warning"
+					}),
+				});
+			}
+
+			console.log(result.value.invalidKeys);
 
 			this.dispatchEffect({
 				name: "redirectToPage",

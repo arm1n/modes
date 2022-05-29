@@ -11,8 +11,8 @@ export class Order implements Model {
 		this.productId = props.productId;
 		this.quantity = props.quantity;
 		this.size = props.size;
-		this.paymentType = props.paymentType;
-		this.orderNumber = props.orderNumber;
+		this.paymentType = props.paymentType || "";
+		this.orderNumber = props.orderNumber || "";
 	}
 
 	public id: string;

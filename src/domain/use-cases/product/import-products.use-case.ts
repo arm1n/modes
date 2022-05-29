@@ -29,7 +29,7 @@ type Input = {
 };
 
 type Output = Promise<
-	Success<number> | Failure<ImportProductsError, { ids: string[] } | undefined>
+	Success<{ count: number, invalidKeys: string[] }> | Failure<ImportProductsError, { ids: string[] } | undefined>
 >;
 
 export class ImportProductsUseCase implements UseCase<Input, Output> {

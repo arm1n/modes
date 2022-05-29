@@ -1,6 +1,6 @@
 {
 	"Market management": "Marktmanagement",
-	
+
 	"Dashboard": "Dashboard",
 
 	"Products": "Produkte",
@@ -27,7 +27,7 @@
 	"File": "Datei",
 	"Select file": "Datei auswählen",
 	"Importing products...": "Importiere Produkte...",
-	"Could not parse file.":"Beim Lesen der Datei ist ein Fehler aufgetreten.",
+	"Could not parse file.": "Beim Lesen der Datei ist ein Fehler aufgetreten.",
 	"No headers were found in first row of file.": "Beim Lesen der Datei wurden keine Spalten in der ersten Zeile gefunden.",
 	"No data were provided to be imported.": "Es wurden keine Daten für den Import bereitgestellt.",
 	"No keys were provided to be imported.": "Es wurden keine Schlüssel für den Import bereitgestellt.",
@@ -35,6 +35,9 @@
 	"The following SKUs contained errors: {{ids}}.": "Die folgenden SKUs waren fehlerhaft: {{ids}}",
 	"{{count}} product has been successfully imported.": "{{count}} Produkt wurde erfolgreich importiert.",
 	"{{count}} products has been successfully imported.": "{{count}} Produkte wurden erfolgreich importiert.",
+	"{{count}} product has been imported with missing columns: {{columns}}": "{{count}} Produkt wurde mit fehlenden Spalten importiert: {{columns}}",
+	"{{count}} products has been imported with missing columns: {{columns}}": "{{count}} Produkte wurden mit fehlenden Spalten importiert: {{columns}}",
+
 	"Clear products": "Produkte löschen",
 	"Do you really want to clear all products?": "Sollen wirklich alle Produkte gelöscht werden?",
 	"Products have been successfully deleted.": "Produkte wurden erfolgreich gelöscht.",
@@ -50,7 +53,7 @@
 	"Could not load orders!": "Konnte Bestellungen nicht laden!",
 	"Could not load order!": "Konnte Bestellung nicht laden!",
 	"Invalid order data!": "Unvollständige Bestelldaten!",
-	
+
 	"Create order": "Bestellung erstellen",
 	"Update order": "Bestellung aktualisieren",
 	"Delete order": "Bestellung löschen",

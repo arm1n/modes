@@ -46,6 +46,7 @@ export class ProductImportService implements ImportService<Product> {
 			);
 		}
 
+		const invalid: Record<string, boolean> = {};
 		const map = filtered.reduce((map, row) => {
 			const props = keys.reduce((props, key) => {
 				const rowKey = mappings[key];
@@ -80,6 +81,8 @@ export class ProductImportService implements ImportService<Product> {
 								props[key] = value;
 								break;
 						}
+					} else {
+						invalid[rowKey] = true;
 					}
 				}
 
@@ -90,10 +93,14 @@ export class ProductImportService implements ImportService<Product> {
 
 			if (!product) {
 				map.set(props.id, new Product(props));
-			} else if (!product.sizes.includes(props.sizes[0])) {
-				product.sizes = [...product.sizes, ...props.sizes];
-				product.units = [...product.units, ...props.units];
-				product.amounts = [...product.amounts, ...props.amounts];
+			} else {
+				const { sizes = [], units = [], amounts = [] } = props;
+
+				if (!product.sizes.includes(sizes[0])) {
+					product.sizes = [...product.sizes, ...sizes];
+					product.units = [...product.units, ...units];
+					product.amounts = [...product.amounts, ...amounts];
+				}
 			}
 
 			return map;
@@ -118,7 +125,7 @@ export class ProductImportService implements ImportService<Product> {
 			);
 		}
 
-		return Result.success(map.size);
+		return Result.success({ count: map.size, invalidKeys: Object.keys(invalid) });
 	}
 
 	private validateRow(row: CSVItem, mappings: Mappings) {
