@@ -102,6 +102,7 @@ export const Component: FC<Props> = ({ presenter }) => {
 													(size, index) =>
 														`${size} (${row.amounts[index]})`
 												)
+												.sort()
 												.join(", "),
 									},
 									{

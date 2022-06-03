@@ -134,8 +134,6 @@ export class Presenter
 				});
 			}
 
-			console.log(result.value.invalidKeys);
-
 			this.dispatchEffect({
 				name: "redirectToPage",
 				data: {

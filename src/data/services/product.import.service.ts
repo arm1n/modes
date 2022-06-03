@@ -100,6 +100,12 @@ export class ProductImportService implements ImportService<Product> {
 					product.sizes = [...product.sizes, ...sizes];
 					product.units = [...product.units, ...units];
 					product.amounts = [...product.amounts, ...amounts];
+				} else {
+					const index = product.sizes.indexOf(props.sizes[0]);
+					console.log(props.id, index, product.amounts[index], props.amounts[0])
+					if (index >= 0) {
+						product.amounts[index] += props.amounts[0];
+					}
 				}
 			}
 
@@ -107,7 +113,7 @@ export class ProductImportService implements ImportService<Product> {
 		}, new Map<string, Product>());
 
 		const promises = await Promise.all(
-			Array.from(map).map(([, product]) =>
+			Array.from(map).map(([, product]) => 
 				this.productRepository.persist(product)
 			)
 		);

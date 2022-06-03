@@ -44,7 +44,7 @@ export class Presenter<T extends object = object>
 	public get actions() {
 		return {
 			update: this.update.bind(this),
-			search: debounce(this.search.bind(this)),
+			search: this.search.bind(this),
 		};
 	}
 
@@ -71,7 +71,7 @@ export class Presenter<T extends object = object>
 		this.dispatchState({ query });
 	}
 
-	private async search() {
+	private search = debounce(async() => {
 		if (!Result.isSuccess(this.collection)) {
 			return;
 		}
@@ -91,5 +91,5 @@ export class Presenter<T extends object = object>
 				)
 			),
 		});
-	}
+	})
 }

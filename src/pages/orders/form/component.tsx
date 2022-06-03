@@ -52,14 +52,15 @@ export const Component: FC<Props> = ({ presenter }) => {
 					id="product"
 					sx={{ width: "100%" }}
 					options={products}
+					
 					autoHighlight={true}
 					getOptionLabel={(option) => option.toString()}
 					value={product}
-
 					onChange={(event, value) => changeProductHandler(value)}
 					renderInput={(params) => (
 						<TextField
 							{...params}
+							autoFocus={true}
 							label={t("Product")}
 							variant="standard"
 						/>

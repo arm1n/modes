@@ -102,6 +102,15 @@ export class Presenter
 			? Result.failure(new Error(t("Could not load orders!")))
 			: result;
 
+		if (Result.isSuccess(orders)) {
+			orders.value.sort((a, b) =>
+				b.id.localeCompare(a.id, undefined, {
+					sensitivity: "base",
+					numeric: true,
+				})
+			);
+		}
+
 		this.searchPresenter.providers.setCollection(orders);
 
 		this.dispatchState({

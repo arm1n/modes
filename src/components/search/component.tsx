@@ -29,6 +29,7 @@ export const Component: FC<Props> = ({ presenter }) => {
 			<TextField
 				value={query}
 				type="search"
+				autoFocus={true}
 				fullWidth={true}
 				variant="standard"
 				label={t("Search")}

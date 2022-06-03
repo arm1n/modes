@@ -34,6 +34,14 @@ export class Product implements Model {
 	}
 
 	public toString() {
-		return `${this.id} | ${this.name || '-'} | ${this.producer || '-'}`;
+		return `${this.id} | ${this.name || "-"} | ${new Intl.NumberFormat(
+			"de-DE",
+			{
+				currency: "EUR",
+				style: "currency",
+				minimumFractionDigits: 2,
+				maximumFractionDigits: 2,
+			}
+		).format(this.price)} | ${this.producer || "-"}`;
 	}
 }
